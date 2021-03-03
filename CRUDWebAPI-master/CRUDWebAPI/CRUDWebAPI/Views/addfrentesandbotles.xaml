@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CRUDWebAPI.Views.addfrentesandbotles">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="salir" Text="FINALIZAR"  Priority="0"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal"
+                         Padding="15,0,15,0"
+                         Margin="-15,0,0,0">
+
+            <Label Text="PLATAFORMA"
+                   FontSize="20"
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="StartAndExpand"/>
+
+
+
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+
+        <Grid BackgroundColor="#2D354C">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackLayout StyleClass="stackLayoutMaster">
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <StackLayout Grid.Row="1" Padding="30,20">
+
+                            </StackLayout>
+
+                        </Grid>
+                        <Frame StyleClass="frameMaster"
+                                       CornerRadius="10"
+                                       x:Name="frame"
+                                       Grid.Row="0">
+
+                            <StackLayout Orientation="Horizontal">
+
+                                <ListView x:Name="ListView1" RowHeight="100" HeightRequest="460">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout Orientation="Vertical" Padding="8,0,8,0">
+                                                <Label Text="CODIGO DEL PRODUCTO:" TextColor="Blue" FontAttributes="Bold" />
+                                                <Label Text="{Binding code}" TextColor="Black" FontAttributes="Italic"/>
+                                                <Label Text="DESCRIPCION:" TextColor="Blue" FontAttributes="Bold" />
+                                                <Label x:Name="no_client" Text="{Binding description}" TextColor="Black" FontAttributes="Italic"/>
+
+                                            </StackLayout>
+                                        </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackLayout>
+                        </Frame>
+
+                    </Grid>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Frame StyleClass="frameMaster"
+                                       CornerRadius="10">
+                            <StackLayout Grid.Row="1" Padding="30,20">
+                                <Label Text="INGRESA EL CODIGO DEL PRODUCTO:" TextColor="Blue" FontAttributes="Bold" />
+                                <Entry x:Name="buscarc" Keyboard="Telephone" BackgroundColor="White" TextColor="Green"/>
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <StackLayout Grid.Row="1" Padding="30,20">
+                        <Button x:Name="btnfinalizarfrentes" Text="Finalizar Levantamiento" IsVisible="True"  BackgroundColor="#2196F3" BorderRadius="20" TextColor="Black"/>
+                    </StackLayout>
+
+                </Grid>
+            </StackLayout>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>
+
+

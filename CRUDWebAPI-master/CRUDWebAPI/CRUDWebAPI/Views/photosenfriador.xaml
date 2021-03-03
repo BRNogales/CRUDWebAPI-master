@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ModelViewsModel="clr-namespace:CRUDWebAPI.ModelViewsModel"
+             mc:Ignorable="d"
+             x:Class="CRUDWebAPI.Views.photosenfriador">
+    <ContentPage.BindingContext>
+        <ModelViewsModel:ClientesViewModel/>
+    </ContentPage.BindingContext>
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal"
+                         Padding="15,0,15,0"
+                         Margin="-15,0,0,0">
+
+            <Label Text="SELECCIONA EL CRITERIO A EVALUAR:"
+                   FontSize="20"
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="StartAndExpand"/>
+
+
+
+
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+
+    <ContentPage.Content>
+
+        <Grid BackgroundColor="#2D354C">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <ScrollView Grid.Row="0" >
+                <StackLayout StyleClass="stackLayoutMaster">
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Frame StyleClass="frameMaster"
+                                       CornerRadius="10"
+                                       x:Name="frame"
+                                       Grid.Row="0">
+
+                            <StackLayout >
+                                <Label Text="CAPTURE CORRECTAMENTE LAS FOTOS!" HorizontalOptions="Center" TextColor="#F54242"  FontAttributes="Bold" />
+                                <StackLayout>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Grid.Row="0" Padding="30,20">
+                                            <Button x:Name="btnimagenenfriador" Text="IMAGEN ENFRIADOR(1)" IsEnabled="True"  BackgroundColor="Green" BorderRadius="20" TextColor="Black"/>
+                                        </StackLayout>
+
+                                    </Grid>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Grid.Row="0" Padding="30,20">
+                                            <Button x:Name="btnimagenenfriador2" Text="IMAGEN ENFRIADOR(2)" IsEnabled="False"  BackgroundColor="Green" BorderRadius="20" TextColor="Black"/>
+                                        </StackLayout>
+
+                                    </Grid>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Grid.Row="0" Padding="30,20">
+                                            <Button x:Name="btnimagenenfriador3" Text="IMAGEN ENFRIADOR(MARCO DE ENTRADA)" IsEnabled="False"  BackgroundColor="Green" BorderRadius="20" TextColor="Black"/>
+
+                                        </StackLayout>
+                                        
+
+                                    </Grid>
+                                    <ProgressBar x:Name="pbar" ProgressColor="Green" ></ProgressBar>
+                                    <Label x:Name="localpathimg1" IsVisible="False">
+                                    </Label>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Grid.Row="1" Padding="30,20">
+                                            <Button x:Name="terminado" Text="SUBIR IMAGEN" IsVisible="False" BackgroundColor="#2196F3" BorderRadius="20" TextColor="Black"/>
+                                            <Button x:Name="terminado2" Text="SUBIR IMAGEN" IsVisible="False" BackgroundColor="#2196F3" BorderRadius="20" TextColor="Black"/>
+                                            <Button x:Name="terminado3" Text="SUBIR IMAGEN" IsVisible="False" BackgroundColor="#2196F3" BorderRadius="20" TextColor="Black"/>
+                                            <Button x:Name="finalizar" Text="FINALIZAR" IsVisible="False" BackgroundColor="#2196F3" BorderRadius="20" TextColor="Black"/>
+                                        </StackLayout>
+                                    </Grid>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Grid.Row="1" Padding="30,20">
+                                            <Button x:Name="btnvolver" Text="Volver" IsVisible="True" BackgroundColor="#F3513B" BorderRadius="20" TextColor="Black"/>
+                                        </StackLayout>
+                                    </Grid>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                    </Grid>
+
+
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

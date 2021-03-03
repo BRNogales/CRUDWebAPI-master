@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ModelViewsModel="clr-namespace:CRUDWebAPI.ModelViewsModel"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             mc:Ignorable="d"
+             x:Class="CRUDWebAPI.Views.Enf2">
+    <ContentPage.BindingContext>
+        <ModelViewsModel:ClientesViewModel/>
+    </ContentPage.BindingContext>
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal"
+                         Padding="15,0,15,0"
+                         Margin="-15,0,0,0">
+
+            <Label Text="ENFRIADOR"
+                   FontSize="20"
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="StartAndExpand"/>
+
+
+
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+
+    <ContentPage.Content>
+
+        <Grid BackgroundColor="#2D354C">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <ScrollView Grid.Row="0" >
+                <StackLayout StyleClass="stackLayoutMaster">
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Frame StyleClass="frameMaster"
+                                       CornerRadius="10"
+                                       x:Name="frame"
+                                       Grid.Row="0">
+
+                            <StackLayout Orientation="Horizontal">
+
+                                <StackLayout>
+                                    <FlexLayout Direction="Column"
+                                             AlignItems="Center"
+                                                JustifyContent="SpaceEvenly">
+                                        <Label FontSize="Large" IsEnabled="True"  x:Name="lblacomdo" FontAttributes="Bold" TextColor="Blue"  Text="ACOMODO POR BLOQUE" />
+                                    </FlexLayout>
+                                    <Label FontSize="Medium" IsEnabled="True"  x:Name="lblfrutaes"  Text="Frutales" TextColor="Black"/>
+                                    <controls:CheckBox IsEnabled="True"  Checked="{Binding arrFruit}" x:Name="chfrutales"></controls:CheckBox>
+                                    <Label FontSize="Medium" IsEnabled="True"  x:Name="lblfisrtpos"  Text="Colas" TextColor="Black"/>
+                                    <controls:CheckBox IsEnabled="True" Checked="{Binding arrColas}"  x:Name="chcolas"></controls:CheckBox>
+                                    <Label FontSize="Medium" IsEnabled="True"  x:Name="lblncbs"  Text="NCBs" TextColor="Black"/>
+                                    <controls:CheckBox IsEnabled="True" Checked="{Binding arrNcbs}"  x:Name="chncbs"></controls:CheckBox>
+                                    <Label FontSize="Medium" IsEnabled="True"  x:Name="lblhidratacion"  Text="Hidratacion" TextColor="Black"/>
+                                    <controls:CheckBox IsEnabled="True" Checked="{Binding arrHyd}"  x:Name="chhid"></controls:CheckBox>
+                                </StackLayout>
+
+                            </StackLayout>
+
+                        </Frame>
+
+
+                    </Grid>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <StackLayout Grid.Row="1" Padding="30,20">
+                            <Button x:Name="btnsiguiente2" Text="Siguiente" IsVisible="True" Command="{Binding acbloque}"  BackgroundColor="#2196F3" BorderRadius="20" TextColor="Black"/>
+                        </StackLayout>
+
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

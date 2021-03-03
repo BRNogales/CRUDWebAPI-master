@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ModelViewsModel="clr-namespace:CRUDWebAPI.ModelViewsModel"
+             mc:Ignorable="d"
+             x:Class="CRUDWebAPI.Views.RegistrarEnf">
+    <ContentPage.BindingContext>
+        <ModelViewsModel:ClientesViewModel/>
+    </ContentPage.BindingContext>
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal"
+                         Padding="15,0,15,0"
+                         Margin="-15,0,0,0">
+
+            <Label Text="ENFRIADOR"
+                   FontSize="20"
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="StartAndExpand"/>
+
+
+
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+
+    <ContentPage.Content>
+
+        <Grid BackgroundColor="#2D354C">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+
+            <ScrollView Grid.Row="0" >
+                <StackLayout StyleClass="stackLayoutMaster">
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Frame StyleClass="frameMaster"
+                                       CornerRadius="10"
+                                       x:Name="frame"
+                                       Grid.Row="0">
+
+                            <StackLayout Orientation="Horizontal">
+
+                                <StackLayout>
+                                    <Button x:Name="btnget" Command="{Binding GetcoolersAsync}"
+                Text="Get All Clientes"
+                IsVisible="False"
+                TextColor="White"
+                FontSize="30"
+                BackgroundColor="DodgerBlue"/>
+
+                                    <Label FontSize="Medium"   x:Name="lbltipo"  Text="Seleccione el tipo de Enfriador" TextColor="Black"/>
+                                    <Picker x:Name="pickertipoenf"
+                                               Title="Selecciona una opcion"
+                                                   TextColor="Black"
+                                             ItemsSource="{Binding enfriador}" ItemDisplayBinding="{Binding value}">
+                                    </Picker>
+                                    <Label FontSize="Medium" IsEnabled="False"  x:Name="lblno"  Text="Seleccione el Numero de Puertas" TextColor="Black"/>
+                                    <Picker x:Name="pickernopuertasenf"
+                                               Title="Selecciona una opcion"
+                                                    IsEnabled="False"
+                                                   TextColor="Black">
+                                        <Picker.ItemsSource>
+                                            <x:Array Type="{x:Type x:String}">
+                                                <x:String>1</x:String>
+                                                <x:String>2</x:String>
+                                                <x:String>3</x:String>
+                                                <x:String>4</x:String>
+                                                <x:String>5</x:String>
+                                            </x:Array>
+                                        </Picker.ItemsSource>
+                                    </Picker>
+                                    <Entry x:Name="no_cliente" Text="{Binding client}" IsVisible="False" IsEnabled="False" HorizontalOptions="Center" Placeholder="NUMERO DEL CLIENTE"></Entry>
+                                    <Entry x:Name="type" Text="{Binding type}" IsVisible="False" IsEnabled="False" HorizontalOptions="Center" Placeholder="NUMERO DEL CLIENTE"></Entry>
+                                    <Entry x:Name="doors" Text="{Binding doors}" IsVisible="False" IsEnabled="False" HorizontalOptions="Center"></Entry>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                    </Grid>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <StackLayout Grid.Row="1" Padding="30,20">
+                            <Button x:Name="btnsiguiente4" Text="+ Agregar" IsVisible="False" Command="{Binding addcooler}" BackgroundColor="#2196F3" BorderRadius="20" TextColor="Black"/>
+                        </StackLayout>
+
+                    </Grid>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <StackLayout Grid.Row="1" Padding="30,20">
+                            <Button x:Name="volver" Text="Volver" IsVisible="True" BackgroundColor="#F3513B" BorderRadius="20" TextColor="Black"/>
+                        </StackLayout>
+
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

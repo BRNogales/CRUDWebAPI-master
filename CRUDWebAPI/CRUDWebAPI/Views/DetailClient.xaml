@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ModelViewsModel="clr-namespace:CRUDWebAPI.ModelViewsModel"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             mc:Ignorable="d"
+             x:Class="CRUDWebAPI.Views.DetailClient">
+
+    <ContentPage.BindingContext>
+        <ModelViewsModel:ClientesViewModel/>
+    </ContentPage.BindingContext>
+
+
+        <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal"
+                         Padding="15,0,15,0"
+                         Margin="-15,0,0,0">
+
+            <Label Text="DETALLES DEL CLIENTE A AUDITAR:"
+                   FontSize="20"
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="StartAndExpand"/>
+
+
+
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+
+    <ContentPage.Content>
+
+        <Grid BackgroundColor="#2D354C">
+
+            <ScrollView>
+                <StackLayout StyleClass="stackLayoutMaster">
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Frame StyleClass="frameMaster"
+                                       CornerRadius="10"
+                                       x:Name="frame"
+                                       Grid.Row="0">
+
+
+
+                            <StackLayout  x:Name="xfactor" Orientation="Vertical" HorizontalOptions="Center">
+                                <Image x:Name="imgdetail" Grid.Row="0"  WidthRequest="170" HeightRequest="170" Margin="0,50,0,30"/>
+                                <Label Text="NOMBRE DE CLIENTE:" TextColor="Blue" FontAttributes="Bold"/>
+                                <Label x:Name="nombre_client"   FontAttributes="Italic"></Label>
+                                <Label Text="NOMBRE COMERCIAL:" TextColor="Blue" FontAttributes="Bold"/>
+                                <Label x:Name="no_comercial"  FontAttributes="Italic"></Label>
+                                <Label Text="RUTA:" TextColor="Blue" FontAttributes="Bold"/>
+                                <Label x:Name="ruta"  FontAttributes="Italic"></Label>
+                                <Label x:Name="idclient"  FontAttributes="Italic" IsVisible="False"></Label>
+                                <Label x:Name="idaudit" FontAttributes="Italic" IsVisible="False"></Label>
+                                <Label x:Name="typeclient"  FontAttributes="Italic" IsVisible="False"></Label>
+                                <Picker x:Name="picketipocliente"
+                                               Title="Selecciona una opcion"
+                                                   TextColor="Black" >
+                                    <Picker.ItemsSource>
+                                        <x:Array Type="{x:Type x:String}">
+                                            <x:String>Enrejado</x:String>
+                                            <x:String>No Enrejado</x:String>
+                                            <x:String>Enrejado con acceso</x:String>
+                                        </x:Array>
+                                    </Picker.ItemsSource>
+                                </Picker>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <StackLayout Grid.Row="1" Padding="30,20">
+                                        <Button x:Name="btna" IsVisible="False" Text="Auditar"  BackgroundColor="#2196F3" BorderRadius="20" TextColor="Black"/>
+                                    </StackLayout>
+
+                                </Grid>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <StackLayout Grid.Row="1" Padding="30,20">
+                                        <Button x:Name="btnmap" IsVisible="True" Text="Mostrar Mapa"  BackgroundColor="Green" BorderRadius="20" TextColor="Black"/>
+                                    </StackLayout>
+
+                                </Grid>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <StackLayout Grid.Row="1" Padding="30,20">
+                                        <Button x:Name="btnvolver" Text="Volver" IsVisible="True"  BackgroundColor="#F3513B" BorderRadius="20" TextColor="Black"/>
+                                    </StackLayout>
+
+                                </Grid>
+
+                            </StackLayout>
+
+                        </Frame>
+
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+
+    </ContentPage.Content>
+
+</ContentPage>

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ModelViewsModel="clr-namespace:CRUDWebAPI.ModelViewsModel"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             mc:Ignorable="d"
+             x:Class="CRUDWebAPI.Views.CargarClientes">
+    
+        <ContentPage.BindingContext>
+        <ModelViewsModel:ClientesViewModel/>
+    </ContentPage.BindingContext>
+   
+    <StackLayout Padding="20">
+        <Button x:Name="btnget" Command="{Binding GetClientesCommand}"
+                Text="Get All Clientes"
+                IsVisible="False"
+                TextColor="White"
+                FontSize="30"
+                BackgroundColor="DodgerBlue"/>
+
+        <ListView ItemsSource="{Binding RutasdeAuditores}"
+                  HasUnevenRows="True" x:Name="list" ItemTapped="ListView_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="18">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.RowSpan="2" Source="{Binding image}"
+                           Aspect="AspectFill"
+                           HeightRequest="60"
+                           WidthRequest="60" />
+                            <Label Grid.Column="1"
+                           Text="{Binding client.name}"
+                           FontAttributes="Bold" TextColor="Black" VerticalOptions="StartAndExpand" />
+                            <Label Grid.Row="1"
+                           Grid.Column="1"
+                           Text="{Binding client.tradename}" TextColor="#F57463" FontAttributes="Italic"/>
+                            <Label Grid.Row="1"
+                           Grid.Column="1"
+                           Text="{Binding client.route.routeNumber}" TextColor="#F57463" FontAttributes="Italic"
+                                   VerticalOptions="End"/>
+                            <Label Text="{Binding id}" IsVisible="False" TextColor="#F57463" FontAttributes="Italic"/>
+                            <Label Text="{Binding client.id}" IsVisible="False" TextColor="#F57463" FontAttributes="Italic"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="1" Padding="30,20">
+                <Button x:Name="btnac" IsVisible="True" Text="Actualizar"  BackgroundColor="#2196F3" BorderRadius="20" TextColor="Black"/>
+            </StackLayout>
+
+        </Grid>
+
+
+    </StackLayout>
+
+</ContentPage>

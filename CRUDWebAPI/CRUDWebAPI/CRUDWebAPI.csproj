@@ -1,0 +1,103 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="img\add-friend.png" />
+    <None Remove="img\botlecoca.png" />
+    <None Remove="img\close.png" />
+    <None Remove="img\comidas.png" />
+    <None Remove="img\comidasrack.PNG" />
+    <None Remove="img\dic.jpeg" />
+    <None Remove="img\energia.PNG" />
+    <None Remove="img\energiarack.PNG" />
+    <None Remove="img\febrero.jpeg" />
+    <None Remove="img\frutales.PNG" />
+    <None Remove="img\frutalesrack.PNG" />
+    <None Remove="img\hidratacion.PNG" />
+    <None Remove="img\hidratacionrack.PNG" />
+    <None Remove="img\img.jpg" />
+    <None Remove="img\imgdetail.png" />
+    <None Remove="img\imgocubre.jpeg" />
+    <None Remove="img\logout.png" />
+    <None Remove="img\noviembre.png" />
+    <None Remove="img\nutricion.PNG" />
+    <None Remove="img\nutricionrack.PNG" />
+    <None Remove="img\product.png" />
+    <None Remove="img\productadd.png" />
+    <None Remove="img\publico-objetivo.png" />
+    <None Remove="img\refrigerator.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="img\close.png" />
+    <EmbeddedResource Include="img\botlecoca.png" />
+    <EmbeddedResource Include="img\refrigerator.png" />
+    <EmbeddedResource Include="img\add-friend.png" />
+    <EmbeddedResource Include="img\comidas.png" />
+    <EmbeddedResource Include="img\comidasrack.PNG" />
+    <EmbeddedResource Include="img\dic.jpeg" />
+    <EmbeddedResource Include="img\energia.PNG" />
+    <EmbeddedResource Include="img\energiarack.PNG" />
+    <EmbeddedResource Include="img\frutales.PNG" />
+    <EmbeddedResource Include="img\frutalesrack.PNG" />
+    <EmbeddedResource Include="img\hidratacion.PNG" />
+    <EmbeddedResource Include="img\hidratacionrack.PNG" />
+    <EmbeddedResource Include="img\img.jpg" />
+    <EmbeddedResource Include="img\imgdetail.png" />
+    <EmbeddedResource Include="img\imgocubre.jpeg" />
+    <EmbeddedResource Include="img\logout.png" />
+    <EmbeddedResource Include="img\noviembre.png" />
+    <EmbeddedResource Include="img\nutricion.PNG" />
+    <EmbeddedResource Include="img\nutricionrack.PNG" />
+    <EmbeddedResource Include="img\product.png" />
+    <EmbeddedResource Include="img\productadd.png" />
+    <EmbeddedResource Include="img\publico-objetivo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="RestSharp" Version="106.11.7" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.7.1" />
+    <PackageReference Include="Xam.Plugin.Media" Version="3.1.3" />
+    <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
+    <PackageReference Include="Xamarin.Forms" Version="3.3.0.967583" />
+    <PackageReference Include="XLabs.Forms" Version="2.3.0-pre05" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="img\febrero.jpeg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\Comunicacion.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Finplat.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\incidencias.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\photosplataformas.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\requiredphotos.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\requireentryphoto.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\showportafolios.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

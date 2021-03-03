@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             xmlns:ModelViewsModel="clr-namespace:CRUDWebAPI.ModelViewsModel"
+             mc:Ignorable="d"
+             x:Class="CRUDWebAPI.Views.plat1">
+    <ContentPage.BindingContext>
+        <ModelViewsModel:ClientesViewModel/>
+    </ContentPage.BindingContext>
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal"
+                         Padding="15,0,15,0"
+                         Margin="-15,0,0,0">
+
+            <Label Text="ENFRIADOR"
+                   FontSize="20"
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="StartAndExpand"/>
+
+
+
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+
+    <ContentPage.Content>
+
+        <Grid BackgroundColor="#2D354C">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+
+            <ScrollView Grid.Row="0" >
+                <StackLayout StyleClass="stackLayoutMaster">
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Frame StyleClass="frameMaster"
+                                       CornerRadius="10"
+                                       x:Name="frame"
+                                       Grid.Row="0">
+
+                            <StackLayout Orientation="Horizontal">
+
+                                <StackLayout>
+                                    <Button x:Name="btncerrarc" WidthRequest="70" HeightRequest="38" BackgroundColor="#F3513B" Text="SALIR"  FontAttributes="Bold" BorderRadius="20" TextColor="Black" HorizontalOptions="End"/>
+                                    <Label FontSize="Medium"   x:Name="lbltipo"  Text="Seleccione tipo de Plataforma (Evaluacion)" TextColor="Black"/>
+                                    <Picker x:Name="pickertipoplat"
+                                               Title="Selecciona una opcion"
+                                                   TextColor="Black" ItemsSource="{Binding typlatfom}" ItemDisplayBinding="{Binding value}" SelectedItem="{Binding id}">
+                                    </Picker>
+                                    <Button x:Name="btnshowport" WidthRequest="160" HeightRequest="38" BorderRadius="20"  BackgroundColor="#32A844" Text="VER PORTAFOLIO"  FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center"/>
+                                    <Label FontSize="Medium" IsEnabled="True"  x:Name="lblno"  Text="Cumple con el Portafolio" TextColor="Black"/>
+                                    <controls:CheckBox IsEnabled="False"  x:Name="siportafolio" Checked="{Binding compliesPortpholio}"></controls:CheckBox>
+                                    <Label FontSize="Medium" IsVisible="False"  x:Name="lblfrentes"  Text="Ingresa el numero de Frentes" TextColor="Black"/>
+                                    <Entry x:Name="txtfrentes" Text="{Binding totalFronts}" Keyboard="Telephone" IsVisible="False"></Entry>
+                                    <Label FontSize="Medium" IsEnabled="True"  x:Name="lblno1"  Text="Cumple con el Respeto" TextColor="Black"/>
+                                    <controls:CheckBox IsEnabled="False"  x:Name="sirespeto" Checked="{Binding compliesRespect}"></controls:CheckBox>
+                                    <Label FontSize="Medium" IsEnabled="True"  x:Name="lblno2"  Text="Cumple con la Comunicacion" TextColor="Black"/>
+                                    <controls:CheckBox IsEnabled="False"  x:Name="sicomunicacion" Checked="{Binding compliesCommunication}"></controls:CheckBox>
+                                    <Label FontSize="Medium" IsEnabled="True"  x:Name="lblno3"  Text="Selecciona el tipo de Plataforma" TextColor="Black"/>
+                                    <controls:CheckBox IsEnabled="False"  x:Name="exhibidor" controls:DefaultText="Anaquel"></controls:CheckBox>
+                                    <controls:CheckBox IsEnabled="False"  x:Name="anaquel" controls:DefaultText="Exhibidor"></controls:CheckBox>
+                                    <Entry IsVisible="False" Text="{Binding platformType}" x:Name="lbltypeplat" ></Entry>
+                                    <Entry IsVisible="False" Text="{Binding exhibitType}" x:Name="lbltypeexib" ></Entry>
+
+                                    
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                    </Grid>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <StackLayout Grid.Row="1" Padding="30,20">
+                            <Button x:Name="btnsiguiente4" Text="Siguiente" Command="{Binding addplatforms}" IsVisible="False" BackgroundColor="#2196F3" BorderRadius="20" TextColor="Black"/>
+                        </StackLayout>
+
+                    </Grid>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <StackLayout Grid.Row="1" Padding="30,20">
+                            <Button x:Name="volver" Text="Volver" IsVisible="True" BackgroundColor="#F3513B" BorderRadius="20" TextColor="Black"/>
+                        </StackLayout>
+
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

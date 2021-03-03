@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ModelViewsModel="clr-namespace:CRUDWebAPI.ModelViewsModel"
+             mc:Ignorable="d"
+             x:Class="CRUDWebAPI.Views.CargarClientes">
+    
+        <ContentPage.BindingContext>
+        <ModelViewsModel:ClientesViewModel/>
+    </ContentPage.BindingContext>
+   
+    <StackLayout Padding="20">
+        <Button x:Name="btnget" Command="{Binding GetClientesCommand}"
+                Text="Get All Clientes"
+                IsVisible="False"
+                TextColor="White"
+                FontSize="30"
+                BackgroundColor="DodgerBlue"/>
+
+
+        <ListView ItemsSource="{Binding RutasdeAuditores}"
+                  HasUnevenRows="True" x:Name="list" ItemTapped="ListView_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="0,10">
+                            <Label Text="{Binding id}" IsVisible="False" TextColor="Blue" FontAttributes="Italic"/>
+                            <Label Text="{Binding client.id}" IsVisible="False" TextColor="Blue" FontAttributes="Italic"/>
+                            <Label Text="{Binding client.name}" TextColor="Blue" FontAttributes="Italic"/>
+                            <Label Text="{Binding client.tradename}" TextColor="Blue" FontAttributes="Italic"/>
+                            <Label Text="{Binding client.route.routeNumber}" TextColor="Blue" FontAttributes="Italic"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             xmlns:ModelViewsModel="clr-namespace:CRUDWebAPI.ModelViewsModel"
+             mc:Ignorable="d"
+             x:Class="CRUDWebAPI.Views.Comunicacion">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal"
+                         Padding="15,0,15,0"
+                         Margin="-15,0,0,0">
+
+            <Label Text="ENFRIADOR"
+                   FontSize="20"
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="StartAndExpand"/>
+
+
+
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+
+    <ContentPage.Content>
+
+        <Grid BackgroundColor="#2D354C">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+
+            <ScrollView Grid.Row="0" >
+                <StackLayout StyleClass="stackLayoutMaster">
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Frame StyleClass="frameMaster"
+                                       CornerRadius="10"
+                                       x:Name="frame"
+                                       Grid.Row="0">
+
+                            <StackLayout Orientation="Horizontal">
+
+                                <StackLayout>
+                                    <Button x:Name="btncerrarc" WidthRequest="70" HeightRequest="38" BackgroundColor="#F3513B" Text="SALIR" BorderRadius="20"  FontAttributes="Bold" TextColor="Black" HorizontalOptions="End"/>
+                                    <Label FontSize="Medium" x:Name="lbltipo"  Text="Agregar todos los materiales estructurales(+)" TextColor="Black"/>
+                                    <Picker x:Name="pickertipoestruct"
+                                               Title="Selecciona una opcion"
+                                                   TextColor="Black" ItemsSource="{Binding typlatfom}" ItemDisplayBinding="{Binding value}">
+                                    </Picker>
+                                    <Picker x:Name="pckcantidad"
+                                               Title="Selecciona la cantidad"
+                                                   TextColor="Black">
+
+                                        <Picker.ItemsSource>
+                                            <x:Array Type="{x:Type x:Int16}">
+                                                <x:Int16>1</x:Int16>
+                                                <x:Int16>2</x:Int16>
+                                                <x:Int16>3</x:Int16>
+                                                <x:Int16>4</x:Int16>
+
+                                            </x:Array>
+                                        </Picker.ItemsSource>
+                                    </Picker>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Grid.Row="1" Padding="30,20">
+                                            <Button x:Name="btnadd" Text="+ Agregar" IsEnabled="False" BackgroundColor="#2196F3" BorderRadius="20" TextColor="Black"/>
+                                        </StackLayout>
+
+                                    </Grid>
+
+                                    <Label FontSize="Medium"   x:Name="lblmatdinamic"  Text="Agregar materiales Dinamicos(+)" TextColor="Black"/>
+                                    <Picker x:Name="pickertipodinamic"
+                                               Title="Selecciona una opcion"
+                                                   TextColor="Black" ItemsSource="{Binding typlatfom}" ItemDisplayBinding="{Binding value}">
+                                    </Picker>
+                                    <Picker x:Name="pckcantidaddinamic"
+                                               Title="Selecciona la cantidad de POP"
+                                                   TextColor="Black">
+
+                                        <Picker.ItemsSource>
+                                            <x:Array Type="{x:Type x:Int16}">
+                                                <x:Int16>1</x:Int16>
+                                                <x:Int16>2</x:Int16>
+                                                <x:Int16>3</x:Int16>
+                                                <x:Int16>4</x:Int16>
+                                                <x:Int16>5</x:Int16>
+
+                                            </x:Array>
+                                        </Picker.ItemsSource>
+                                    </Picker>
+                                    <Label FontSize="Medium" x:Name="lblpop1"  Text="POP(1)" TextColor="Black"/>
+                                    <controls:CheckBox x:Name="sipop1"></controls:CheckBox>
+                                    <Label FontSize="Medium" x:Name="lblpop2"  Text="POP(2)" TextColor="Black"/>
+                                    <controls:CheckBox x:Name="sipop2"></controls:CheckBox>
+                                    <Label FontSize="Medium" x:Name="lblpop3"  Text="POP(3)" TextColor="Black"/>
+                                    <controls:CheckBox x:Name="sipop3"></controls:CheckBox>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Button x:Name="btnshowpop" WidthRequest="150" HeightRequest="38" BackgroundColor="#32A844" Text="VER DINAMICOS" BorderRadius="20"  FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center"/>
+                                        <StackLayout Grid.Row="1" Padding="30,20">
+                                            <Button x:Name="btnadddinamic" IsEnabled="False" Text="+ Agregar" Command="{Binding addinamic}" BackgroundColor="#2196F3" BorderRadius="20" TextColor="Black"/>
+                                            <Button x:Name="btnaddimage" IsVisible="False" Text="(+) Subir Imagen" BackgroundColor="#2196F3" BorderRadius="20" TextColor="Black"/>
+                                            <Label x:Name="lbltype" IsVisible="False"></Label>
+                                            <Label x:Name="localpathimg1" IsVisible="False"></Label>
+                                        </StackLayout>
+
+                                    </Grid>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                    </Grid>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <StackLayout Grid.Row="1" Padding="30,20">
+                            <Button x:Name="btnsiguiente4" Text="Finalizar" BackgroundColor="#2196F3" BorderRadius="20" TextColor="Black"/>
+                        </StackLayout>
+
+                    </Grid>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <StackLayout Grid.Row="1" Padding="30,20">
+                            <Button x:Name="volver" Text="Volver" IsVisible="True" BackgroundColor="#F3513B" BorderRadius="20" TextColor="Black"/>
+                        </StackLayout>
+
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ModelViewsModel="clr-namespace:CRUDWebAPI.ModelViewsModel"
+             mc:Ignorable="d"
+             x:Class="CRUDWebAPI.Views.frentesdetail">
+    <ContentPage.BindingContext>
+        <ModelViewsModel:ClientesViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+
+        <Grid BackgroundColor="#2D354C">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <ScrollView Grid.Row="0" >
+                <StackLayout StyleClass="stackLayoutMaster">
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Frame StyleClass="frameMaster"
+                                       CornerRadius="10"
+                                       x:Name="frame"
+                                       Grid.Row="0">
+
+                            <StackLayout  Orientation="Vertical" HorizontalOptions="Center">
+                                <Image x:Name="imgaddprod" Grid.Row="0"  WidthRequest="170" HeightRequest="170" Margin="0,50,0,30"/>
+                                <Label Text="CODIGO DEL PRODUCTO:" TextColor="Blue" FontAttributes="Bold"/>
+                                <Label x:Name="cod_product"  FontAttributes="Italic"></Label>
+                                <Label Text="DESCRIPCION DEL PRODUCTO:" TextColor="Blue" FontAttributes="Bold"/>
+                                <Label x:Name="desc_product"  FontAttributes="Italic"></Label>
+                                <Label Text="MARCA:" TextColor="Blue" FontAttributes="Bold" />
+                                <Label x:Name="brand"   FontAttributes="Italic"></Label>
+                                <Label Text="SAVOR:" TextColor="Blue" FontAttributes="Bold" />
+                                <Label x:Name="flavor"  FontAttributes="Italic"></Label>
+                                <Label Text="ENPAQUE:" TextColor="Blue" FontAttributes="Bold" />
+                                <Label x:Name="package"  FontAttributes="Italic"></Label>
+                                <Label Text="PRESENTACION:" TextColor="Blue" FontAttributes="Bold" />
+                                <Label x:Name="presentacion"  FontAttributes="Italic"></Label>
+                                <Label x:Name="uuidc"  IsVisible="False"  FontAttributes="Italic"></Label>
+                                <Label Text="ELIGE EL NUMERO BOTELLAS DE ESTE PRODUCTO:" TextColor="Blue" FontAttributes="Bold"/>
+                                <Picker x:Name="pickernobotellas"
+                                               Title="Selecciona una opcion"
+                                                   TextColor="Black">
+                                    <Picker.ItemsSource>
+                                        <x:Array Type="{x:Type x:String}">
+                                            <x:String>0</x:String>
+                                            <x:String>1</x:String>
+                                            <x:String>2</x:String>
+                                            <x:String>3</x:String>
+                                            <x:String>4</x:String>
+                                            <x:String>5</x:String>
+                                            <x:String>6</x:String>
+                                            <x:String>7</x:String>
+                                            <x:String>8</x:String>
+                                            <x:String>9</x:String>
+                                            <x:String>10</x:String>
+                                            <x:String>11</x:String>
+                                            <x:String>12</x:String>
+                                            <x:String>13</x:String>
+                                            <x:String>14</x:String>
+                                            <x:String>15</x:String>
+                                            <x:String>16</x:String>
+                                            <x:String>17</x:String>
+                                            <x:String>18</x:String>
+                                            <x:String>19</x:String>
+                                            <x:String>20</x:String>
+                                            <x:String>21</x:String>
+                                            <x:String>22</x:String>
+                                            <x:String>23</x:String>
+                                            <x:String>24</x:String>
+                                            <x:String>25</x:String>
+                                        </x:Array>
+                                    </Picker.ItemsSource>
+                                </Picker>
+                                <Label Text="ELIGE EL NUMERO FRENTES DE ESTE PRODUCTO:" TextColor="Blue" FontAttributes="Bold"/>
+                                <Picker x:Name="pickernofrentes"
+                                               Title="Selecciona una opcion"
+                                                   TextColor="Black" IsEnabled="False">
+                                    <Picker.ItemsSource>
+                                        <x:Array Type="{x:Type x:String}">
+                                            <x:String>0</x:String>
+                                            <x:String>1</x:String>
+                                            <x:String>2</x:String>
+                                            <x:String>3</x:String>
+                                            <x:String>4</x:String>
+                                            <x:String>5</x:String>
+                                            <x:String>6</x:String>
+                                            <x:String>7</x:String>
+                                            <x:String>8</x:String>
+                                            <x:String>9</x:String>
+                                            <x:String>10</x:String>
+                                            <x:String>11</x:String>
+                                            <x:String>12</x:String>
+                                            <x:String>13</x:String>
+                                            <x:String>14</x:String>
+                                            <x:String>15</x:String>
+                                            <x:String>16</x:String>
+                                            <x:String>17</x:String>
+                                            <x:String>18</x:String>
+                                            <x:String>19</x:String>
+                                            <x:String>20</x:String>
+                                            <x:String>21</x:String>
+                                            <x:String>22</x:String>
+                                            <x:String>23</x:String>
+                                            <x:String>24</x:String>
+                                            <x:String>25</x:String>
+                                        </x:Array>
+                                    </Picker.ItemsSource>
+                                </Picker>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <StackLayout Grid.Row="1" Padding="30,20">
+                                        <Button x:Name="btnagg" Text="Agregar" IsVisible="False"  BackgroundColor="#2196F3" BorderRadius="20" TextColor="Black"/>
+                                    </StackLayout>
+
+                                </Grid>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <StackLayout Grid.Row="1" Padding="30,20">
+                                        <Button x:Name="volver" Text="Volver" IsVisible="True" BackgroundColor="#F3513B" BorderRadius="20" TextColor="Black"/>
+                                    </StackLayout>
+
+                                </Grid>
+
+                            </StackLayout>
+                        </Frame>
+
+                    </Grid>
+
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

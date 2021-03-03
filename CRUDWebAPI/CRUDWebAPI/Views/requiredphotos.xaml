@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CRUDWebAPI.Views.requiredphotos">
+    <ContentPage.Content>
+
+        <Grid BackgroundColor="#2D354C">
+
+            <ScrollView>
+                <StackLayout StyleClass="stackLayoutMaster">
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Frame StyleClass="frameMaster"
+                                       CornerRadius="10"
+                                       x:Name="frame"
+                                       Grid.Row="0">
+
+
+
+                            <StackLayout>
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Label FontSize="Large" x:Name="lblstills" FontAttributes="Italic"  Text="FOTOS REQUERIDAS DE NOVIEMBRE (STILLS Y CSDS)" TextColor="Blue"/>
+                                    <Image x:Name="imgstilss"  Grid.Row="0"  WidthRequest="320" HeightRequest="370" Margin="0,50,0,30"/>
+                                </Grid>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <StackLayout Grid.Row="1" Padding="30,20">
+                                        <Button x:Name="btnvolver" Text="Volver" IsVisible="True"   BackgroundColor="#F3513B" BorderRadius="20" TextColor="Black"/>
+                                    </StackLayout>
+
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
+
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+
+    </ContentPage.Content>
+
+</ContentPage>

@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ModelViewsModel="clr-namespace:CRUDWebAPI.ModelViewsModel"
+             mc:Ignorable="d"
+             x:Class="CRUDWebAPI.Views.incidencias">
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal"
+                         Padding="15,0,15,0"
+                         Margin="-15,0,0,0">
+
+            <Label Text="INCIDENCIAS"
+                   FontSize="20"
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="StartAndExpand"/>
+
+
+
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+
+    <ContentPage.Content>
+
+        <Grid BackgroundColor="#2D354C">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <ScrollView Grid.Row="0" >
+                <StackLayout StyleClass="stackLayoutMaster">
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Frame StyleClass="frameMaster"
+                                       CornerRadius="10"
+                                       x:Name="frame"
+                                       Grid.Row="0">
+
+                            <StackLayout Orientation="Horizontal">
+
+                                <StackLayout>
+                                    <Label x:Name="lblllenado" FontSize="Medium" Text="¿Tuvo alguna Incidencia o contingencia relacionada con la auditoria?" TextColor="Black"/>
+                                    <Picker x:Name="pickeraud"
+                                               Title="Selecciona una opcion"
+                                                   TextColor="Black">
+                                        <Picker.ItemsSource>
+                                            <x:Array Type="{x:Type x:String}">
+                                                <x:String>SI</x:String>
+                                                <x:String>NO</x:String>
+                                            </x:Array>
+                                        </Picker.ItemsSource>
+                                    </Picker>
+                                    <Label x:Name="BLL" FontSize="Medium" IsEnabled="False" Text="TIPO DE INCIDENCIA:" TextColor="Black"/>
+                                    <Picker x:Name="pck"
+                                               Title="Selecciona una opcion"
+                                                   TextColor="Black"
+                                              IsEnabled="False">
+                                        <Picker.ItemsSource>
+                                            <x:Array Type="{x:Type x:String}">
+                                                <x:String>Cerrado permanente</x:String>
+                                                <x:String>Se negó a cooperar</x:String>
+                                                <x:String>Entrevista suspendida</x:String>
+                                                <x:String>Cerrado por hora/dia</x:String>
+                                                <x:String>No localizado</x:String>
+                                                <x:String>Otro Canal / Cambio de giro</x:String>
+                                                <x:String>Sin Prod Coca-Cola</x:String>
+                                                <x:String>Dirección foránea</x:String>
+                                                <x:String>Cliente en Remodelación</x:String>
+                                                <x:String>Zona de Extrema Inseguridad</x:String>
+                                                <x:String>Negatividad por indicación CC</x:String>
+                                                <x:String>Cliente no coincide Id</x:String>
+                                                <x:String>Cliente duplicado</x:String>
+                                                <x:String>Cliente con geolocalización incorrecta</x:String>
+                                                <x:String>Otras</x:String>
+                                            </x:Array>
+                                        </Picker.ItemsSource>
+                                    </Picker>
+                                    <Label x:Name="selectincidence" IsVisible="False"/>
+                                    <Label Text="Comentarios Adicionales/Otra Incidencia" x:Name="coms" TextColor="Black"/>
+                                    <Editor x:Name="coments" Placeholder="Comentarios" IsEnabled="False" HeightRequest="150" ></Editor>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                    </Grid>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <StackLayout Grid.Row="1" Padding="30,20">
+                            <Button x:Name="btnfinauditoria" Text="Finalizar" IsVisible="False" BackgroundColor="#2196F3"  BorderRadius="20" TextColor="Black"/>
+                        </StackLayout>
+
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

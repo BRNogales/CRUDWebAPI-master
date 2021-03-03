@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CRUDWebAPI.Views.showportafolios">
+    <ContentPage.Content>
+
+        <Grid BackgroundColor="#2D354C">
+
+            <ScrollView>
+                <StackLayout StyleClass="stackLayoutMaster">
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Frame StyleClass="frameMaster"
+                                       CornerRadius="10"
+                                       x:Name="frame"
+                                       Grid.Row="0">
+
+
+
+                            <StackLayout>
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <StackLayout Grid.Row="1" Padding="30,20">
+                                        <Label Text="Selecciona el Portafolio que Quieres Ver" FontSize="Medium" x:Name="lblport" FontAttributes="Italic" TextColor="Blue"/>
+                                        <Picker x:Name="pickertipoportafolio"
+                                               Title="Selecciona una opcion"
+                                                   TextColor="Black">
+
+                                            <Picker.ItemsSource>
+                                                <x:Array Type="{x:Type x:String}">
+                                                    <x:String>Comidas</x:String>
+                                                    <x:String>Hidratacion</x:String>
+                                                    <x:String>Nutricion</x:String>
+                                                    <x:String>Frutales</x:String>
+                                                    <x:String>Energia y Antojo</x:String>
+
+                                                </x:Array>
+                                            </Picker.ItemsSource>
+                                        </Picker>
+                                        <Image x:Name="genricimage" WidthRequest="200" HeightRequest="200" IsVisible="False"></Image>
+                                        <Image x:Name="genricimage2" WidthRequest="200" HeightRequest="200" IsVisible="False"></Image>
+                                    </StackLayout>
+
+                                </Grid>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <StackLayout Grid.Row="1" Padding="30,20">
+                                        <Button x:Name="btnvolver" Text="Volver" IsVisible="True"   BackgroundColor="#F3513B" BorderRadius="20" TextColor="Black"/>
+                                    </StackLayout>
+
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
+
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+
+    </ContentPage.Content>
+
+</ContentPage>

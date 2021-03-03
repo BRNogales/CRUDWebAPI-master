@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ModelViewsModel="clr-namespace:CRUDWebAPI.ModelViewsModel"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             mc:Ignorable="d"
+             x:Class="CRUDWebAPI.Views.Enf1">
+    <ContentPage.BindingContext>
+        <ModelViewsModel:ClientesViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content >
+
+        <Grid BackgroundColor="#2D354C">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+                       
+            <ScrollView Grid.Row="0" >
+                <StackLayout StyleClass="stackLayoutMaster">
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Frame StyleClass="frameMaster"
+                                       CornerRadius="10"
+                                       x:Name="frame"
+                                       Grid.Row="0">
+
+                            <StackLayout Orientation="Horizontal">
+                                
+
+
+                                <StackLayout>
+                                    <Button x:Name="btncerrarc" WidthRequest="70" HeightRequest="38" BackgroundColor="#F3513B" Text="SALIR" BorderRadius="20"  FontAttributes="Bold" TextColor="Black" HorizontalOptions="End"/>
+                                    <Button x:Name="btngetc" Command="{Binding GetcoolersTypeAsync}"
+                Text="Get All Coolers"
+                IsVisible="False"
+                TextColor="White"
+                FontSize="30"
+                BackgroundColor="DodgerBlue"/>
+                                    <Label x:Name="lblllenado" FontSize="Medium" Text="Seleccione el enfriador del cliente" TextColor="Black"/>
+                                    <Picker x:Name="pickerllenado"    Title="Selecciona una opcion"  TextColor="Black" ItemsSource="{Binding enfriador}" ItemDisplayBinding="{Binding type.value}">
+                                    </Picker>
+                                    <Label FontSize="Medium" IsEnabled="False"  x:Name="lblllenado75"  Text="¿El enfriador tiene llenado al 75%?" TextColor="Black"/>
+                                    <controls:CheckBox IsEnabled="False"  Checked="{Binding fill75}" x:Name="sillenado"></controls:CheckBox>
+                                    <Label FontSize="Medium" IsEnabled="False"  x:Name="lblfisrtpos"  Text="¿El enfriador cumple con la primera posicion?" TextColor="Black"/>
+                                    <controls:CheckBox IsEnabled="False" Checked="{Binding firstPosition}"  x:Name="siprimerapos"></controls:CheckBox>
+                                    <Label FontSize="Medium" IsEnabled="False"  x:Name="lblinvasions"  Text="¿El enfriador cuenta con algun tipo de invacion?" TextColor="Black"/>
+                                    <controls:CheckBox IsEnabled="False" Checked="{Binding isInvaded}" CheckedChanged="siinvaded_CheckedChanged"  x:Name="siinvaded"></controls:CheckBox>
+                                    <Label FontSize="Medium" IsEnabled="False"  x:Name="lblivasiontipo"  Text="Selecciona el tipo de invasion ¿Si existe? " TextColor="Black"/>
+                                    <Picker x:Name="pickerinvasiontipo"
+                                               Title="Selecciona una opcion"
+                                                    IsEnabled="False"
+                                                   TextColor="Black"
+                                            SelectedItem="{Binding invasions}">
+                                        <Picker.ItemsSource>
+                                            <x:Array Type="{x:Type x:String}">
+                                                <x:String>Bebidas alcohólicas</x:String>
+                                                <x:String>Carnes</x:String>
+                                                <x:String>Comidas congeladas</x:String>
+                                                <x:String>Comidas rapidas</x:String>
+                                                <x:String>Productos lácteos</x:String>
+                                                <x:String>Golosinas / confitería</x:String>
+                                                <x:String>Alimentos para animales</x:String>
+                                                <x:String>Vitaminas/Energizantes/Jugos</x:String>
+                                                <x:String>Producto Competencia</x:String>
+                                            </x:Array>
+                                        </Picker.ItemsSource>
+                                    </Picker>
+                                    <Entry x:Name="no_cliente" Text="{Binding client.id}" IsVisible="False" IsEnabled="False" HorizontalOptions="Center" Placeholder="NUMERO DEL CLIENTE"></Entry>
+                                    <Picker x:Name="pickerid" IsVisible="False"   Title="Selecciona una opcion"  TextColor="Black" ItemsSource="{Binding enfriador}" ItemDisplayBinding="{Binding id}" >
+                                    </Picker>
+                                    <Entry x:Name="noidenf" Text="{Binding id}"  IsVisible="False" IsEnabled="False" HorizontalOptions="Center"></Entry>
+                                        
+                                    
+                                </StackLayout>
+
+                            </StackLayout>
+                            
+                        </Frame>
+                        
+
+                    </Grid>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <StackLayout Grid.Row="1" Padding="30,20">
+                            <Button x:Name="btnreg" Text="+ REGISTRAR NUEVO ENFRIADOR" IsVisible="True"  BackgroundColor="Green" BorderRadius="20" TextColor="Black"/>
+                        </StackLayout>
+
+                    </Grid>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <StackLayout Grid.Row="1" Padding="30,20">
+                            <Button x:Name="btnsiguiente2" Text="Siguiente" IsVisible="False" Command="{Binding invasionesyllenado}"  BackgroundColor="#2196F3" BorderRadius="20" TextColor="Black"/>
+                        </StackLayout>
+
+                    </Grid>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <StackLayout Grid.Row="1" Padding="30,20">
+                            <Button x:Name="btnvolver" Text="Volver" IsVisible="True"   BackgroundColor="#F3513B" BorderRadius="20" TextColor="Black"/>
+                        </StackLayout>
+
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>
